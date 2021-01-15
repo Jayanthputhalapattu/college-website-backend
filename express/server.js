@@ -28,8 +28,8 @@ router.get('/', (req, res) => {
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
-app.use("/news",NewsRouter)
-app.use("/auth",Auth)
+router.use("/news",NewsRouter)
+router.use("/auth",Auth)
 app.use(bodyParser.json());
 
 app.use('/.netlify/functions/server', router);  // path must route to lambda
