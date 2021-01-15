@@ -28,6 +28,7 @@ router.get('/', (req, res) => {
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 app.use(cors())
+router.use(cors())
 app.use("/news",NewsRouter)
 app.use("/auth",Auth)
 app.use(bodyParser.json());

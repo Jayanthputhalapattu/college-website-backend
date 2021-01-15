@@ -1,9 +1,10 @@
 const express= require("express")
 const NewsS = require("../models/NewsModel.js")
-
+const cors = require("cors")
 const NewsRouter  = express.Router();
 const bodyParser = require("body-parser");
 const app = require("../server.js");
+NewsRouter.use(cors())
 NewsRouter.use(bodyParser.json())
 NewsRouter.get("/",(req,res,next)=>{
      NewsS.find({})
