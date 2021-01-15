@@ -9,7 +9,7 @@ const Auth = require("./routes/users")
 const NewsRouter = require("./routes/NewsRouter")
 var uri = "mongodb+srv://jayanth:jayanth@cluster0.ufn3j.mongodb.net/svuce_data"
 
-app.use(cors())
+
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
