@@ -18,7 +18,7 @@ mongoose.connect(uri, {
   console.log("MongoDB Connected…")
 })
 
-app.use(cors())
+
 const router = express.Router();
 router.get('/', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' });
@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 });
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
-
+app.use(cors())
 app.use("/news",NewsRouter)
 app.use("/auth",Auth)
 app.use(bodyParser.json());
