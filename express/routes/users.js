@@ -14,7 +14,9 @@ router.get('/:id',function(req, res, next) {
         res.statusCode = 200;
         
         res.setHeader('Content-Type','application/json');
+        
         res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.json(users)
        },err=>next(err))
        .catch(err=>next(err))
@@ -26,6 +28,7 @@ router.post('/signup', (req, res, next) => {
     if(err) {
       res.statusCode = 200;
       res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
       res.setHeader('Content-Type', 'application/json');
       res.json({err});
     }
@@ -46,6 +49,7 @@ router.post('/signup', (req, res, next) => {
         passport.authenticate('local')(req, res, () => {
           res.statusCode = 200;
           res.header("Access-Control-Allow-Origin", "*");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
           res.setHeader('Content-Type', 'application/json');
           res.json({success: true, status: 'signup Successful!'});
         });
@@ -61,6 +65,7 @@ router.post('/login',(req, res,next) => {
        if(!user){
          res.statusCode = 200;
          res.setHeader('Content-Type','application/json')
+         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
          res.json({success:false,status:info})
        }
        req.logIn(user,(err)=>{
@@ -68,6 +73,7 @@ router.post('/login',(req, res,next) => {
          {
           res.statusCode = 200;
           res.setHeader('Content-Type','application/json')
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
           res.json({success:false,status:'could not log in'})
          }
         

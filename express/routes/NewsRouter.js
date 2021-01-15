@@ -11,6 +11,7 @@ NewsRouter.get("/",(req,res,next)=>{
      .then((news)=>{
         res.statusCode = 200;
         res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.setHeader("Content-Type","application/json")
          res.json({news})
          
@@ -22,6 +23,7 @@ NewsRouter.post("/",(req,res,next)=>{
     .then((news)=>{
         res.statusCode = 200;
         res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
          res.setHeader("Content-Type","application/json")
         res.json(news);
     })
@@ -36,6 +38,7 @@ NewsRouter.delete("/:id",(req,res,next)=>{
     .then((news)=>{
         res.statusCode = 200;
         res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.setHeader("Content-Type","application/json");
         NewsS.find({})
     
