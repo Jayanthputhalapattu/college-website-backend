@@ -10,8 +10,6 @@ NewsRouter.get("/",(req,res,next)=>{
      NewsS.find({})
      .then((news)=>{
         res.statusCode = 200;
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.setHeader("Content-Type","application/json")
          res.json({news})
          
@@ -22,14 +20,12 @@ NewsRouter.post("/",(req,res,next)=>{
     NewsS.create({newsHeading : req.body.newsHeading, DriveLink: req.body.DriveLink})
     .then((news)=>{
         res.statusCode = 200;
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-         res.setHeader("Content-Type","application/json")
+        res.setHeader("Content-Type","application/json")
         res.json(news);
     })
     .catch((err)=>{
         res.statusCode = 402;
-        res.header("Access-Control-Allow-Origin", "*");
+       
         res.send("Error,Please try again")
     })
 })

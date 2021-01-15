@@ -3,10 +3,10 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var User = require('../models/users');
 var passport = require('passport');
-
 var authenticate = require('../authenticate');
+var cors = require('cors')
 router.use(bodyParser.json());
-
+router.use(cors())
 router.use(passport.initialize())
 router.get('/:id',function(req, res, next) {
        User.findOne({_id:req.params.id})
@@ -15,8 +15,7 @@ router.get('/:id',function(req, res, next) {
         
         res.setHeader('Content-Type','application/json');
         
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+       
         res.json(users)
        },err=>next(err))
        .catch(err=>next(err))
