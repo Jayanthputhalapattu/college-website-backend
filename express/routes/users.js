@@ -12,6 +12,7 @@ router.get('/:id',function(req, res, next) {
        User.findOne({_id:req.params.id})
        .then((users)=>{
         res.statusCode = 200;
+        res.header("Access-Control-Allow-Origin", "*");
         res.setHeader('Content-Type','application/json');
         res.json(users)
        },err=>next(err))
@@ -23,6 +24,7 @@ router.post('/signup', (req, res, next) => {
     req.body.password, (err, user) => {
     if(err) {
       res.statusCode = 200;
+      res.header("Access-Control-Allow-Origin", "*");
       res.setHeader('Content-Type', 'application/json');
       res.json({err});
     }
@@ -34,12 +36,15 @@ router.post('/signup', (req, res, next) => {
       user.save((err, user) => {
         if (err) {
           res.statusCode = 200;
+          res.header("Access-Control-Allow-Origin", "*");
           res.setHeader('Content-Type', 'application/json');
+          
           res.json({err: err});
           return ;
         }
         passport.authenticate('local')(req, res, () => {
           res.statusCode = 200;
+          res.header("Access-Control-Allow-Origin", "*");
           res.setHeader('Content-Type', 'application/json');
           res.json({success: true, status: 'signup Successful!'});
         });
