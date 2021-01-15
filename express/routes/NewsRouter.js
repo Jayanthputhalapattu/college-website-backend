@@ -10,6 +10,7 @@ NewsRouter.get("/",(req,res,next)=>{
      NewsS.find({})
      .then((news)=>{
         res.statusCode = 200;
+        res.header("Access-Control-Allow-Origin", "*");
         res.setHeader("Content-Type","application/json")
          res.json({news})
          

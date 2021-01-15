@@ -12,8 +12,9 @@ router.get('/:id',function(req, res, next) {
        User.findOne({_id:req.params.id})
        .then((users)=>{
         res.statusCode = 200;
-        res.header("Access-Control-Allow-Origin", "*");
+        
         res.setHeader('Content-Type','application/json');
+        res.header("Access-Control-Allow-Origin", "*");
         res.json(users)
        },err=>next(err))
        .catch(err=>next(err))
