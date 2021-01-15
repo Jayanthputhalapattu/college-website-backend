@@ -8,7 +8,7 @@ const mongoose = require("mongoose")
 const Auth = require("./routes/users")
 const NewsRouter = require("./routes/NewsRouter")
 var uri = "mongodb+srv://jayanth:jayanth@cluster0.ufn3j.mongodb.net/svuce_data"
-const cors = require("cors");
+const cors = require('cors');
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
