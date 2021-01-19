@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose")
 const Auth = require("./routes/users")
 const NewsRouter = require("./routes/NewsRouter")
-var uri = "mongodb+srv://jayanth:jayanth@cluster0.ufn3j.mongodb.net/svuce_data"
+var uri = "mongodb+srv://svucewdcwdc:svucewdcwdc@cluster0.vkoy5.mongodb.net/svuce_data?retryWrites=true&w=majority"
 
 const cors = require('cors')
 mongoose.connect(uri, {
