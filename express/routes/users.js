@@ -8,6 +8,7 @@ var cors = require('cors')
 router.use(bodyParser.json());
 router.use(cors())
 router.use(passport.initialize())
+
 router.get('/:id',function(req, res, next) {
        User.findOne({_id:req.params.id})
        .then((users)=>{
